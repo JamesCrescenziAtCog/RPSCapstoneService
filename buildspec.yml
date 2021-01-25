@@ -1,14 +1,15 @@
 version: 0.2
+
+env:
+  variables:
+    PROJECT: AspNetMvcSampleApp
+    DOTNET_FRAMEWORK: 4.6.1
 phases:
-  install:
-    runtime-versions:
-      dotnet: latest
-    commands:
-  pre-build:
-    commands:
   build:
     commands:
-      - dotnet build
+      - nuget restore
+      - msbuild $env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
 artifacts:
-  base-directory: dist/RPSSERVICE
-  files: '**/*'
+  files:
+    - '**/*'
+  base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
