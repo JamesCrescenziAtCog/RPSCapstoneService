@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      dotnet: latest
+    commands:
+  pre-build:
+    commands:
+  build:
+    commands:
+      - dotnet build
+artifacts:
+  base-directory: dist/RPSSERVICE
+  files: '**/*'
