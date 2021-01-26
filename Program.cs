@@ -20,8 +20,7 @@ namespace rpsService
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
-                    
+                    webBuilder.UseStartup<Startup>();   
                 });
     }
 }
