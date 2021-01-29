@@ -22,5 +22,6 @@ namespace rpsService
                 {
                     webBuilder.UseStartup<Startup>();   
                 });
+                
     }
 }
